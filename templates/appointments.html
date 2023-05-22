@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hospital Management System - Appointments</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .appointment-list {
+            margin-bottom: 20px;
+        }
+        .appointment-item {
+            margin-bottom: 10px;
+        }
+        .appointment-item p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hospital Management System - Appointments</h1>
+        <div class="appointment-list">
+            {% for appointment in appointments %}
+            <div class="appointment-item">
+                <p>Patient: {{ appointment['patient'].name }}</p>
+                <p>Date: {{ appointment['datetime'].date() }}</p>
+                <p>Time: {{ appointment['datetime'].time() }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        <a href="/">Schedule Appointment</a>
+    </div>
+</body>
+</html>
